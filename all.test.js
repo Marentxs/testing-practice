@@ -3,6 +3,7 @@ import capitalize from "./capitalize.js";
 import reverseString from "./reverseString.js";
 import calculator from "./calculator.js";
 import analyzeArray from "./analyze.js";
+import caesarCipher from "./caesar.js";
 
 test("capitalize hello", () => {
   expect(capitalize("hello")).toBe("Hello");
@@ -39,4 +40,16 @@ test("analyze the array and return correct analysis", () => {
     max: 8,
     length: 6,
   });
+});
+
+test("convert string and shift factor it", () => {
+  expect(caesarCipher("xyz", 3)).toBe("abc");
+});
+
+test("convert string and preserves caps", () => {
+  expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+});
+
+test("convert string and keeps punctuation", () => {
+  expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
 });
